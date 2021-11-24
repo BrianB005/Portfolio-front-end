@@ -13,7 +13,7 @@ const Testimonials = () => {
     autoplay: true,
   };
   return (
-    <Wrapper>
+    <Wrapper id="testimonials">
       <Slider {...settings}>
         {Feedbacks.map((feedback) => {
           return <Testimonial key={feedback.id} {...feedback} />;

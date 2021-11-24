@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Intro from "./Intro";
 const Home = () => {
   return (
-    <Wrapper>
+    <Wrapper id="/">
       <Navbar />
       <Intro />
     </Wrapper>

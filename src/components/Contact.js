@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { FaTelegramPlane } from "react-icons/fa";
 import styled from "styled-components";
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
+  const [value, setValue] = useState({});
+
+  // console.log(value);
+
+  const handleChange = (e) => {
+    setValue((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+  const SendEmail = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const { data } = await axios.post(
+        "https://portfolio-nodemailer-api.herokuapp.com/",
+        value
+      );
+
+      console.log(data);
+      setLoading(false);
+      alert("Email sent successfully");
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      alert("Oops!Something went wrong!Try Again in  a few minutes");
+    }
+  };
   return (
-    <Container>
+    <Container id="contact">
       <Wrapper>
         <h3>Reach Me by filling the form below</h3>
         <Form>
@@ -12,8 +42,9 @@ const Contact = () => {
             <Input
               name="name"
               placeholder="Enter your name"
-              autofocus
+              autoFocus
               required
+              onChange={handleChange}
             />
           </InputWrapper>
           <InputWrapper>
@@ -22,6 +53,7 @@ const Contact = () => {
               name="email"
               placeholder="Enter your email address"
               required
+              onChange={handleChange}
             />
           </InputWrapper>
           <InputWrapper>
@@ -35,10 +67,11 @@ const Contact = () => {
               rows={7}
               placeholder="Enter your message"
               required
+              onChange={handleChange}
             />
           </InputWrapper>
-          <Button>
-            Send Message
+          <Button onClick={SendEmail}>
+            {loading ? "Sending" : "Send Message"}
             <FaTelegramPlane />
           </Button>
         </Form>

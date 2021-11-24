@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Languages } from "../data";
 const Resume = () => {
   return (
-    <Wrapper>
+    <Wrapper id="resume">
       <ContentWrapper>
         <Left>
           <h1>Web Development</h1>

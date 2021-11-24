@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 import { FaBars } from "react-icons/fa";
+// import { BiUpArrowCircle } from "react-icons/bi";
+import { IoIosArrowDropupCircle } from "react-icons/io";
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
@@ -12,20 +17,77 @@ const Navbar = () => {
       </Left>
       <Right>
         <List open={open}>
-          <ListItem onClick={() => setOpen(false)}>Home</ListItem>
-          <ListItem onClick={() => setOpen(false)}>About</ListItem>
-          <ListItem onClick={() => setOpen(false)}>Resume</ListItem>
-          <ListItem onClick={() => setOpen(false)}>Projects</ListItem>
-          <ListItem onClick={() => setOpen(false)}>Testimonials</ListItem>
-          <ListItem onClick={() => setOpen(false)}>ContactMe</ListItem>
+          <ListItem
+            onClick={() => setOpen(false)}
+            smooth={true}
+            duration={1000}
+          >
+            Home
+          </ListItem>
+          <ListItem
+            to="about"
+            onClick={() => setOpen(false)}
+            smooth={true}
+            duration={1000}
+          >
+            About
+          </ListItem>
+          <ListItem
+            to="resume"
+            onClick={() => setOpen(false)}
+            smooth={true}
+            duration={1000}
+          >
+            Resume
+          </ListItem>
+          <ListItem
+            to="projects"
+            onClick={() => setOpen(false)}
+            smooth={true}
+            duration={1000}
+          >
+            Projects
+          </ListItem>
+          <ListItem
+            smooth={true}
+            duration={1000}
+            to="testimonials"
+            onClick={() => setOpen(false)}
+          >
+            Testimonials
+          </ListItem>
+          <ListItem
+            to="contact"
+            onClick={() => setOpen(false)}
+            smooth={true}
+            duration={1000}
+          >
+            ContactMe
+          </ListItem>
         </List>
       </Right>
       <NavToggle onClick={() => setOpen(!open)}>
         <FaBars />
       </NavToggle>
+
+      <BackToTopIcon onClick={() => scroll.scrollToTop()}>
+        <IoIosArrowDropupCircle />
+      </BackToTopIcon>
     </Wrapper>
   );
 };
+const BackToTopIcon = styled.div`
+  position: fixed;
+  top: 90vh;
+  right: 60px;
+  color: green;
+  cursor: pointer;
+  font-size: 42px;
+  transition: all 0.6s linear;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
 
 const Wrapper = styled.div`
   max-width: 1100px;
@@ -65,7 +127,8 @@ const List = styled.ul`
   transition: all 0.8s linear;
   @media screen and (max-width: 900px) {
     position: absolute;
-    display: block;
+    display: flex;
+    flex-direction: column;
     background: #082032;
     height: 100vh;
     left: -70px;
@@ -88,7 +151,7 @@ const List = styled.ul`
   }
 `;
 
-const ListItem = styled.li`
+const ListItem = styled(Link)`
   font-size: 19px;
   line-height: 2;
   width: 100%;

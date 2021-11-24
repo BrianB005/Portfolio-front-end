@@ -44,6 +44,13 @@ const Intro = () => {
     </Wrapper>
   );
 };
+// const BackToTopIcon = styled.div`
+//   position: absolute;
+//   top: 90vh;
+//   right: 100px;
+//   color: green;
+//   font-size: 28px;
+// `;
 
 const Wrapper = styled.div`
   display: flex;
