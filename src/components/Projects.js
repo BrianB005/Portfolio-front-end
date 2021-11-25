@@ -14,13 +14,19 @@ const Projects = () => {
           </h6>
         </Left>
         <Right>
-          <Text href="http://urembom-beauty-and-makeups.netlify.app/">
+          <Text
+            target="_blank"
+            href="http://urembom-beauty-and-makeups.netlify.app/"
+          >
             Full Stack MERN Stack E-commerce web app.
           </Text>
-          <Text href="https://online-eats.netlify.app">
+          <Text target="_blank" href="https://online-eats.netlify.app">
             Full Stack MERN Stack Food Ordering web app
           </Text>
-          <Text href="https://awesome-blog-website.netlify.app/">
+          <Text
+            target="_blank"
+            href="https://awesome-blog-website.netlify.app/"
+          >
             Fully functional Blog Website
           </Text>
         </Right>
