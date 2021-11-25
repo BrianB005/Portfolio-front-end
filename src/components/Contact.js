@@ -42,7 +42,6 @@ const Contact = () => {
             <Input
               name="name"
               placeholder="Enter your name"
-              autoFocus
               required
               onChange={handleChange}
             />

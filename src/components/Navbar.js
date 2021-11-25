@@ -17,7 +17,7 @@ const Navbar = () => {
       </Left>
       <Right>
         <List open={open}>
-          <ListItem
+          <ListItem to="/"
             onClick={() => setOpen(false)}
             smooth={true}
             duration={1000}
