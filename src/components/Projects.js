@@ -20,9 +20,16 @@ const Projects = () => {
           >
             Full Stack MERN Stack E-commerce web app.
           </Text>
+          <Text
+            target="_blank"
+            href="https://todo-app-plan-your-day.netlify.app/"
+          >
+            Fully functional TODO App.
+          </Text>
           <Text target="_blank" href="https://online-eats.netlify.app">
             Full Stack MERN Stack Food Ordering web app
           </Text>
+
           <Text
             target="_blank"
             href="https://awesome-blog-website.netlify.app/"
